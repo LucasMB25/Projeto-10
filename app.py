@@ -1,13 +1,16 @@
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY", "chave-apenas-para-aula")
+app.secret_key = os.getenv("SECRET_KEY",)
 
 # Credenciais apenas para demonstração.
-USUARIO_CORRETO = os.getenv("APP_USER", "admin")
-SENHA_CORRETA = os.getenv("APP_PASSWORD", "1234")
+USUARIO_CORRETO = os.getenv("APP_USER", "")
+SENHA_CORRETA = os.getenv("APP_PASSWORD", "")
 
 
 @app.route("/", methods=["GET", "POST"])
